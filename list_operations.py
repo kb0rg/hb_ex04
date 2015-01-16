@@ -25,62 +25,64 @@ def head(input_list):
         Return the first element of the input list.
         [ A, B, C, D, E, F ] --> A
     """
-    pass
+    return input_list[0]
 
 def tail(input_list):
     """
         Return all elements of the input list except the first.
         [ A, B, C, D ] --> [ B, C, D ]
     """
-    pass
+    return input_list[1:]
 
 def last(input_list):
     """
         Return the last element of the input list.
         [ A, B, C, D ] --> D
     """
-    pass
+    #this works too but will alter the list, may impact following code
+    # return input_list.pop() 
+    return input_list[-1]
 
 def init(input_list):
     """
         Return all elements of the input list except the last.
         [ A, B, C, D ] --> [ A, B, C ]
     """
-    pass
+    return input_list[:-1]
 
 """
 Do yourself a favor and get a short code review here.
 You can also get reviewed by a neighbor who has been reviewed.
 """
+# code review done!
 
 def first_three(input_list):
     """
         Return the first three elements of the input list.
         [ A, B, C, D, E, F ] --> [ A, B, C ]
     """
-    pass
+    return input_list[:3]
 
 def last_five(input_list):
     """
         Return the last five elements of the input list.
         [ A, B, C, D, E, F ] --> [ B, C, D, E, F ]
     """
-    pass
+    return input_list[-5:]
 
 def middle(input_list):
     """
         Return all elements of the input list except the first two and the last two.
         [ A, B, C, D, E, F ] --> [ C, D ]
     """
-    pass
+    return input_list[2:-2]
 
 def inner_four(input_list):
     """
         Return the third, fourth, fifth, and sixth elements of the input list.
         [ A, B, C, D, E, F, G ] --> [ C, D, E, F ]
     """
-
-    pass
+    return input_list[2:6]
 
 def inner_four_end(input_list):
     """
@@ -88,7 +90,7 @@ def inner_four_end(input_list):
         list, in that order.
         [ A, B, C, D, E, F, G, H, I, J, K, L] --> [ G, H, I, J ]
     """
-    pass
+    return input_list[-6:-2]
 
 def replace_head(input_list):
     """
