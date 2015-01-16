@@ -97,14 +97,19 @@ def replace_head(input_list):
         Replace the head of the input list with the value 42.
         [ A, B, C, D ] --> [ 42, B, C, D]
     """
-    pass
+    input_list[0] = 42
+    return input_list
+
 
 def replace_third_and_last(input_list):
     """
         Replace the third and last elements of the input list with the value 37.
         [ A, B, C, D, E, F ] --> [ A, B, 37, D, E, 37 ]
     """
-    pass
+    input_list[2] = 37
+    input_list[-1] = 37
+
+    return input_list
 
 def replace_middle(input_list):
     """
@@ -112,15 +117,28 @@ def replace_middle(input_list):
         that order, except for the first two and last two elements.
         [ A, B, C, D, E, F, G, H, I ] --> [ A, B, 42, 37, H, I ] 
     """
-
-    pass
+    input_list[2:-2] = [42, 37]
+    return input_list
 
 def delete_third_and_seventh(input_list):
     """
         Remove the third and seventh elements of the input list.
         [ A, B, C, D, E, F, G, H ] --> [ A, B, D, E, F, H ]
     """
-    pass
+    # is there a better way to do this? seems convoluted
+    del input_list[2]
+    del input_list[5]
+    # this works in theory but technically returns a new list
+    # rebound to name of original list, so fails test
+    # new_list = input_list[:2] + input_list[3:6] + input_list[7:]    
+    # input_list = new_list
+
+    #could also delete later one first because earlier one position 
+    #unaffected by removal of later one.
+
+    #or slice w step - this also works!!
+    # del input_list[2:7:4]
+    return input_list
 
 def delete_middle(input_list):
     """
@@ -128,7 +146,10 @@ def delete_middle(input_list):
         last two.
          [ A, B, C, D, E, F, G, H ] --> [ A, B, G, H ]
     """
-    pass
+    # both work! 
+    input_list[2:-2] = []
+    # del input_list[2:-2]
+    return input_list
 
 """
 Part 1 is finished! Ask for a code review before proceeding to Part 2.
@@ -154,15 +175,27 @@ def custom_len(input_list):
     """
         like len(input_list), should return the number of items in the list
     """
-    pass
+    len_count = 0
+    for item in input_list:
+        len_count += 1
 
-# For the next four functions, get clever using slice operations described in the first half
+    return len_count
+
+# For the next four functions, get clever using slice operations described in 
+# the first half
 def custom_append(input_list, value):
     """
         like input_list.append(value), should add the value to the end of the list
         and return nothing
     """
-    pass
+    #input_list += value[] # this passes, by bypassing the rebinding problem
+    #input_list = input_list + value[] # this is rebinding, ie not editing in place
+
+    # input_list[:-1] = [input_list[-1]:value] #not working currently
+    input_list[custom_len(input_list):custom_len(input_list)] = [value]
+
+
+
 
 def custom_extend(input_list, second_list):
     """
